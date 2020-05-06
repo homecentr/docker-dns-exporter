@@ -30,7 +30,7 @@ jobs:
         run: docker build . -t ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.docker_tag }}
 
       - name: Chown configs required for the tests
-        run: chown -R 7077:7077 ./example
+        run: sudo chown -R 7077:7077 ./example
 
       - name: Test Docker image
         run: cd tests && sudo gradle test --info -Dimage_tag=${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.docker_tag }}

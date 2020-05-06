@@ -39,7 +39,7 @@ jobs:
               --label "org.label-schema.build-date=$(date '+%F %T')"
 
       - name: Chown configs required for the tests
-        run: chown -R 7077:7077 ./example
+        run: sudo chown -R 7077:7077 ./example
 
       - name: Test Docker image
         if: env.RELEASE_VERSION != ''
