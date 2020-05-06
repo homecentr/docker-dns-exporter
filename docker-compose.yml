@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  $$IMAGE_NAME$$:
+  dns-exporter:
     build: .
-    image: homecentr/$$IMAGE_NAME$$
+    image: homecentr/dns-exporter
     restart: unless-stopped

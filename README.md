@@ -1,4 +1,4 @@
-# HomeCentr - $$IMAGE_NAME$$
+# HomeCentr - dns-exporter
 Template repository for Docker container repositories
 
 ## Project status
