@@ -5,7 +5,7 @@ on:
       - master
 
 env:
-  IMAGE_NAME: "homecentr/$$IMAGE_NAME$$"
+  IMAGE_NAME: "homecentr/dns-exporter"
 
 jobs:
   build:
@@ -37,6 +37,9 @@ jobs:
               --label "org.label-schema.vendor=HomeCentr" \
               --label "version=$RELEASE_VERSION" \
               --label "org.label-schema.build-date=$(date '+%F %T')"
+
+      - name: Chown configs required for the tests
+        run: sudo chown -R 7077:7077 ./example
 
       - name: Test Docker image
         if: env.RELEASE_VERSION != ''

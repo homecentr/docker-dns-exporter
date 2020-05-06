@@ -1,6 +1,29 @@
 version: "3.7"
 services:
-  $$IMAGE_NAME$$:
-    build: .
-    image: homecentr/$$IMAGE_NAME$$
+  dns:
+    image: homecentr/dns
     restart: unless-stopped
+    volumes: 
+      - ./example/bind:/config:rw
+    networks:
+      dns_net:
+        ipv4_address: 172.16.100.10  
+  
+  dns-exporter:
+    build: .
+    image: homecentr/dns-exporter
+    restart: unless-stopped
+    ports:
+      - 9119:9119/tcp
+    environment:
+      EXPORTER_ARGS: "-bind.stats-url http://172.16.100.10:8888"
+    networks:
+      dns_net:
+        ipv4_address: 172.16.100.20
+
+networks:
+  dns_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.100.0/24

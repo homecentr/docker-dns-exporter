@@ -17,3 +17,6 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+**/*.bind
+**/*.bind.jnl
