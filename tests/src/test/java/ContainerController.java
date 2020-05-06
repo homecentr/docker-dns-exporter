@@ -44,7 +44,7 @@ public class ContainerController {
     }
 
     private GenericContainer startExporterContainer(Network network, String dnsIpAddress) {
-        String dockerImageTag = "homecentr/dns-exporter:local"; // System.getProperty("image_tag", "homecentr/dns-exporter");
+        String dockerImageTag = System.getProperty("image_tag");
 
         logger.info("Tested Docker image tag: {}", dockerImageTag);
 
