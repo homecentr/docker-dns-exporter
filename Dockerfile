@@ -7,7 +7,7 @@ RUN go get github.com/digitalocean/bind_exporter
 WORKDIR /go/src/github.com/digitalocean/bind_exporter
 RUN make	
 
-FROM homecentr/base:2.0.0-alpine
+FROM homecentr/base:2.1.0-alpine
 
 ENV EXPORTER_ARGS=""
 
