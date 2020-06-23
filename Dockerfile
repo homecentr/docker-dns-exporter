@@ -1,4 +1,4 @@
-FROM golang:1.14.2 as metrics-build
+FROM golang:1.14.4 as metrics-build
 
 # Download exporter source code
 RUN go get github.com/digitalocean/bind_exporter
