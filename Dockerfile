@@ -7,12 +7,12 @@ RUN go get github.com/digitalocean/bind_exporter
 WORKDIR /go/src/github.com/digitalocean/bind_exporter
 RUN make	
 
-FROM homecentr/base:2.0.0-alpine
+FROM homecentr/base:2.4.3-alpine
 
 ENV EXPORTER_ARGS=""
 
 # Required for the health checks
-RUN apk add --no-cache curl=7.67.0-r0
+RUN apk add --no-cache curl=7.69.1-r0
 
 # Copy the binary
 COPY --from=metrics-build /go/src/github.com/digitalocean/bind_exporter/bind_exporter /usr/bin/bind_exporter
